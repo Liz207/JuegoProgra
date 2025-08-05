@@ -1,6 +1,8 @@
-
-
---- Creación de tablas
+CREATE DATABASE Videojuego;
+GO
+USE Videojuego;
+Go
+--- CreaciÃ³n de tablas
 CREATE TABLE raza 
 (
     id_raza INT PRIMARY KEY,
@@ -33,28 +35,28 @@ CREATE TABLE personaje
     raza_id INT REFERENCES raza(id_raza),
     vida_actual INT,
     id_arma INT REFERENCES arma(id_arma),
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    fecha_creacion DATE
 );
 
 
 -- Datos iniciales
-INSERT INTO raza (nombre, descripcion) VALUES 
-('Humano', 'Puede usar armas de fuego'),
-('Elfo', 'Puede usar magia de diferentes elementos'),
-('Orco', 'Puede usar hacha o martillo'),
-('Bestia', 'Híbrido animal con habilidades especiales');
+INSERT INTO raza (id_raza,nombre, descripcion) VALUES 
+(1, 'Humano', 'Puede usar armas de fuego'),
+(2, 'Elfo', 'Puede usar magia de diferentes elementos'),
+(3, 'Orco', 'Puede usar hacha o martillo'),
+(4, 'Bestia', 'HÃ­brido animal con habilidades especiales');
 
-INSERT INTO arma (nombre, tipo, danio_minimo, danio_maximo, modificadores) VALUES 
-('Escopeta', 'Arma de fuego', 1, 5, '+2% de daño'),
-('Rifle francotirador', 'Arma de fuego', 1, 5, 'Mayor daño a distancia'),
-('Báculo de Fuego', 'Magia', 1, 5, '+10% de daño'),
-('Báculo de Tierra', 'Magia', 1, 5, '+2% de daño, puede atacar dos veces'),
-('Báculo de Aire', 'Magia', 1, 5, 'Mayor daño a distancia'),
-('Báculo de Agua', 'Magia', 1, 5, 'Sanación mejorada'),
-('Hacha', 'Cuerpo a cuerpo', 1, 5, 'Provoca sangrado'),
-('Martillo', 'Cuerpo a cuerpo', 1, 5, 'Daño consistente'),
-('Puños', 'Natural', 25, 25, 'Atacante pierde 10 de vida'),
-('Espada', 'Cuerpo a cuerpo', 1, 10, 'Daño variable alto');
+INSERT INTO arma (id_arma, nombre, tipo, danio_minimo, danio_maximo, modificadores) VALUES 
+(1, 'Escopeta', 'Arma de fuego', 1, 5, '+2% de daÃ±o'),
+(2, 'Rifle francotirador', 'Arma de fuego', 1, 5, 'Mayor daÃ±o a distancia'),
+(3, 'BÃ¡culo de Fuego', 'Magia', 1, 5, '+10% de daÃ±o'),
+(4, 'BÃ¡culo de Tierra', 'Magia', 1, 5, '+2% de daÃ±o, puede atacar dos veces'),
+(5, 'BÃ¡culo de Aire', 'Magia', 1, 5, 'Mayor daÃ±o a distancia'),
+(6, 'BÃ¡culo de Agua', 'Magia', 1, 5, 'SanaciÃ³n mejorada'),
+(7, 'Hacha', 'Cuerpo a cuerpo', 1, 5, 'Provoca sangrado'),
+(8, 'Martillo', 'Cuerpo a cuerpo', 1, 5, 'DaÃ±o consistente'),
+(9, 'PuÃ±os', 'Natural', 25, 25, 'Atacante pierde 10 de vida'),
+(10, 'Espada', 'Cuerpo a cuerpo', 1, 10, 'DaÃ±o variable alto');
 
 
 
