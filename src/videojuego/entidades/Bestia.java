@@ -4,6 +4,9 @@
  */
 package videojuego.entidades;
 
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  *
  * @author ingri
@@ -12,7 +15,7 @@ public class Bestia extends Personaje{
     private boolean haDormido = false;
 
     public Bestia(String nombre) {
-        super(nombre, Raza.BESTIA, 100);
+        super(nombre, Razas.BESTIA, 100);
     }
 
     @Override
@@ -51,9 +54,13 @@ public class Bestia extends Personaje{
         }
         
         if (opcion == 1) {
-            this.arma = new Arma("Puños", "Natural", 25, 25, "Atacante pierde 10 de vida");
+            this.arma = new Armas("Puños", "Natural", 25, 25, "Atacante pierde 10 de vida");
         } else {
-            this.arma = new Arma("Espada", "Cuerpo a cuerpo", 1, 10, "Daño variable alto");
+            this.arma = new Armas("Espada", "Cuerpo a cuerpo", 1, 10, "Daño variable alto");
         }
+    }
+    @Override
+    public String getDescripcionHabilidad() {
+        return "Dormir: recupera 45% de la vida máxima una vez por combate";
     }
 }
