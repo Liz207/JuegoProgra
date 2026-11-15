@@ -13,7 +13,7 @@ public class Humano extends Personaje{
      private boolean haComido = false;
 
     public Humano(String nombre) {
-        super(nombre, Razas.Humano, 100);
+        super(nombre, Razas.HUMANO, 100);
     }
      @Override
     public int atacar(Personaje objetivo) {

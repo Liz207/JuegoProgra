@@ -7,6 +7,8 @@ package videojuego.juego;
 import java.util.Scanner;
 import videojuego.database.DatabaseManager;
 import videojuego.entidades.Elfo;
+import videojuego.entidades.Orco;
+import videojuego.entidades.Bestia;
 import videojuego.entidades.Humano;
 import videojuego.entidades.Personaje;
 /**
@@ -28,10 +30,10 @@ public class Menu {
             System.out.println("2. Ver estadísticas");
             System.out.println("3. Salir");
             System.out.print("Selecciona una opción: ");
-            
+
             int opcion = scanner.nextInt();
             scanner.nextLine(); // Limpiar buffer
-            
+
             switch (opcion) {
                 case 1:
                     iniciarNuevaPartida();
@@ -49,21 +51,21 @@ public class Menu {
      }
       private void iniciarNuevaPartida() {
         System.out.println("\n=== CREACIÓN DE PERSONAJES ===");
-        
+
         System.out.println("\nJugador 1:");
         Personaje jugador1 = crearPersonaje();
-        
+
         System.out.println("\nJugador 2:");
         Personaje jugador2 = crearPersonaje();
-        
+
         Combate combate = new Combate(jugador1, jugador2, dbManager);
         combate.iniciarCombate();
     }
-      
+
     private Personaje crearPersonaje() {
         System.out.print("Ingresa el nombre del personaje: ");
         String nombre = scanner.nextLine();
-        
+
         System.out.println("\nSelecciona una raza:");
         System.out.println("1. Humano (Armas de fuego)");
         System.out.println("2. Elfo (Magia)");
@@ -72,9 +74,9 @@ public class Menu {
         System.out.print("Opción: ");
          int opcionRaza = scanner.nextInt();
         scanner.nextLine(); // Limpiar buffer
-        
+
         Personaje personaje = null;
-        
+
         switch (opcionRaza) {
             case 1:
                 personaje = new Humano(nombre);
@@ -106,12 +108,12 @@ public class Menu {
                 System.out.println("Opción inválida. Se asignará Humano por defecto.");
                 personaje = new Humano(nombre);
         }
-        
+
         personaje.seleccionarArma(scanner);
-        Systemda.out.println("\nPersonaje creado: " + personaje.getNombre() + 
+        System.out.println("\nPersonaje creado: " + personaje.getNombre() +
                          " (" + personaje.getRaza() + ")");
         System.out.println("Habilidad especial: " + personaje.getDescripcionHabilidad());
-        
+
         return personaje;
     }
  private void mostrarEstadisticas() {
